@@ -1,6 +1,5 @@
 const { Client } = require('pg');
 const axios = require('axios');
-const readline = require('readline');
 
 const cliente = new Client({
   user: 'postgres',
@@ -14,7 +13,6 @@ async function criarBanco() {
   await cliente.connect();
   console.log("Conectado ao banco de dados!");
 
-  // Criação das tabelas
   const tabelaPokemon = `
     CREATE TABLE IF NOT EXISTS pokemons (
       id SERIAL PRIMARY KEY,

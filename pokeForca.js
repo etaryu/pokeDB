@@ -2,7 +2,6 @@ const { Client } = require('pg');
 const axios = require('axios');
 const readline = require('readline');
 
-// Configuração do cliente PostgreSQL
 const cliente = new Client({
   user: 'postgres',
   host: 'localhost',
@@ -21,15 +20,10 @@ function iniciarJogo(pokemonAleatorio) {
     input: process.stdin,
     output: process.stdout,
   });
+  
+  const pokemonData = pokemonAleatorio;
 
-  rl.question('Vamos jogar! Descubra o nome do Pokémon no jogo de forca! Pronto? (sim/não): ', async (resposta) => {
-    if (resposta.toLowerCase() !== 'sim') {
-      console.log('Jogo encerrado. Até a próxima!');
-      rl.close();
-      return;
-    }
-
-    const pokemonData = pokemonAleatorio;
+  (async () => {
     const tipos = await cliente.query('SELECT tipo FROM tipos WHERE pokemon_id = $1', [pokemonData.id]);
 
     console.log(`Dica: Este Pokémon pesa ${pokemonData.peso} e tem ${pokemonData.altura} de altura.`);
@@ -79,12 +73,11 @@ function iniciarJogo(pokemonAleatorio) {
     };
 
     pedirLetra();
-  });
+  })();
 }
 
-
 (async () => {
-    await cliente.connect();
-    const pokemonAleatorio = await selecionarPokemonAleatorio(); 
-    iniciarJogo(pokemonAleatorio);
+  await cliente.connect();
+  const pokemonAleatorio = await selecionarPokemonAleatorio(); 
+  iniciarJogo(pokemonAleatorio);
 })();
