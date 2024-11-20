@@ -26,7 +26,7 @@ function iniciarJogo(pokemonAleatorio) {
   (async () => {
     const tipos = await cliente.query('SELECT tipo FROM tipos WHERE pokemon_id = $1', [pokemonData.id]);
 
-    console.log(`Dica: Este Pokémon pesa ${pokemonData.peso} e tem ${pokemonData.altura} de altura.`);
+    console.log(`Este Pokémon pesa ${pokemonData.peso} e tem ${pokemonData.altura} de altura`);
     console.log("Tipos:", tipos.rows.map((t) => t.tipo).join(', '));
 
     let palavra = pokemonData.nome.toUpperCase();
@@ -47,12 +47,12 @@ function iniciarJogo(pokemonAleatorio) {
     const pedirLetra = () => {
       console.log("Palavra:", letrasAcertadas.join(' '));
       if (letrasAcertadas.join('') === palavra) {
-        console.log("Parabéns! Você acertou o nome do Pokémon!");
+        console.log("Você acertou o nome do Pokémon!");
         rl.close();
         return;
       }
       if (tentativas <= 0) {
-        console.log("Você perdeu! O nome do Pokémon era:", palavra);
+        console.log("Você perdeu! O nome do Pokémon era ", palavra);
         rl.close();
         return;
       }

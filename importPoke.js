@@ -11,7 +11,7 @@ const cliente = new Client({
 
 async function criarBanco() {
   await cliente.connect();
-  console.log("Conectado ao banco de dados!");
+  console.log("Conectado ao banco de dados");
 
   const tabelaPokemon = `
     CREATE TABLE IF NOT EXISTS pokemons (
@@ -31,7 +31,6 @@ async function criarBanco() {
 
   await cliente.query(tabelaPokemon);
   await cliente.query(tabelaTipos);
-  console.log("Tabelas criadas!");
 }
 
 async function importarPokemon(nomePokemon) {
@@ -49,7 +48,7 @@ async function importarPokemon(nomePokemon) {
     await cliente.query(tipoSQL, valoresTipo);
   }
 
-  console.log(`Pokémon ${pokemon.name} importado!`);
+  console.log(`${pokemon.name} importado`);
 }
 
 async function importarTodosPokemons() {
@@ -59,7 +58,7 @@ async function importarTodosPokemons() {
   for (const { name } of pokemons) {
     await importarPokemon(name);
   }
-  console.log("Todos os Pokémons da primeira geração foram importados!");
+  console.log("Pokémons da primeira geração foram importados");
 }
 
 (async () => {
