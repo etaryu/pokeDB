@@ -1,6 +1,8 @@
 Nome dos Alunos: Shynji Miyazato, Yuggo Teruya
 Youtube Link Apresentação: https://youtu.be/rFB31l-mwrI
 Link GitHub do Projeto: https://github.com/etaryu/pokeDB
+Dentro desse Projeto, tem o Diagrama em PDF e o Dump
+
 
 Como baixar ambiente (NECESSÁRIO: NODE.JS E DOCKER):
 1- Baixe o repositório clone do pokeDB      
