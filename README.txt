@@ -1,5 +1,5 @@
 Nome dos Alunos: Shynji Miyazato, Yuggo Teruya
-Youtube Link Apresentação:
+Youtube Link Apresentação: https://youtu.be/rFB31l-mwrI
 Link GitHub do Projeto: https://github.com/etaryu/pokeDB
 
 Como baixar ambiente (NECESSÁRIO: NODE.JS E DOCKER):
